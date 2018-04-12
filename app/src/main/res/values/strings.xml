@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="ips">192.168.43.182:200</string>
+
+    <string name="app_name">校园递</string>
+    <string name="main_name">校园递</string>
+    <string name="title_activity_users">UsersActivity</string>
+    <string name="title_activity_denglu">DengluActivity</string>
+    <string name="title_activity_zhuce">ZhuceActivity</string>
+    <string name="title_activity_zhmm">ZhmmActivity</string>
+    <string name="title_activity_xmm">XmmActivity</string>
+    <string name="title_activity_chaxun">ChaxunActivity</string>
+
+    <string-array name="items">
+        <item>ems快递</item>
+        <item>国通快递</item>
+        <item>汇通快运</item>
+        <item>全峰快递</item>
+        <item>申通</item>
+        <item>顺丰</item>
+        <item>天天快递</item>
+        <item>万象物流</item>
+        <item>圆通速递</item>
+        <item>韵达快运</item>
+        <item>宅急送</item>
+        <item>中通速递</item>
+    </string-array>
+    <string name="title_activity_about_author">aboutAuthorActivity</string>
+</resources>

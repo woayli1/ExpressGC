@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.express_gc.XmmActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:onClick="bcxmm"
+            android:background="@color/green"
+            android:id="@+id/imageButton3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/textViee5"
+            android:layout_alignTop="@+id/textViee5"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:paddingRight="40dp"
+            android:id="@+id/textViee5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:gravity="center_horizontal"
+            android:text="新密码"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="新密码:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etxmm"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:ems="10"
+            android:hint="新密码"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <Button
+        android:onClick="btxmm"
+        android:id="@+id/dlbt"
+        android:layout_width="120sp"
+        android:layout_height="60sp"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="确定"
+        android:textColor="#888888"
+        android:textSize="25sp" />
+
+
+</RelativeLayout>

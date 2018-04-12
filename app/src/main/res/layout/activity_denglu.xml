@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.express_gc.DengluActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:onClick="bcdl"
+            android:background="@color/green"
+            android:id="@+id/imageButton3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/textViee5"
+            android:layout_alignTop="@+id/textViee5"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/textViee5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green"
+            android:gravity="center_horizontal"
+            android:paddingRight="40dp"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="用户名:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/dlus"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:ems="10"
+            android:hint="昵称/姓名/手机号"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="密码:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/dlpw"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:ems="10"
+            android:hint="密码"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/dlbt"
+        android:layout_width="120sp"
+        android:layout_height="60sp"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:onClick="dlbt"
+        android:text="登录"
+        android:textColor="#888888"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/dlzc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dlbt"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="34dp"
+        android:textSize="18sp"
+        android:text="注册账号" />
+
+    <TextView
+        android:id="@+id/dlzh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dlbt"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_toEndOf="@+id/dlbt"
+        android:layout_toRightOf="@+id/dlbt"
+        android:text="忘记密码？"
+        android:textSize="18sp" />
+
+</RelativeLayout>
