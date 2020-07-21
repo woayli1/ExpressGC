@@ -1,33 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.administrator.express_gc.SendActivity">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <Button
+        android:id="@+id/issue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/l8"
+        android:onClick="fb"
+        android:text="@string/activity_send_button_confirm_take_order" />
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity_send_consignee"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/nametext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="16dp"
+
+            android:layout_weight="5"
+            android:hint="@string/activity_send_input_consignee"
+
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#cccccc"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity_send_phone"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/phonetext"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:hint="@string/activity_send_input_phone"
+
+            android:inputType="phone"
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#cccccc"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l3"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity_send_express"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/company"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:hint="@string/activity_send_input_express"
+
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#cccccc"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l4"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity_send_pickup_code"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/idtext"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:hint="@string/activity_send_input_pickup_code"
+
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#cccccc"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity_send_address"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:hint="@string/activity_send_input_address"
+
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#cccccc"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l6"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity_send_pay"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/payText"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:hint="@string/activity_send_input_pay"
+
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#cccccc"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l7"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/activity_send_time"
+            android:textColor="#000000"
+            android:textSize="15dp" />
+
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+
+            android:layout_marginRight="16dp"
+            android:layout_weight="5"
+            android:hint="@string/activity_send_input_time"
+
+            android:maxLines="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="#cccccc"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:onClick="bcse"
             android:id="@+id/imageButton3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignBottom="@+id/textViee5"
-            android:layout_alignTop="@+id/textViee5"
             android:background="@color/green"
+            android:onClick="bcse"
             android:src="@drawable/back" />
 
         <TextView
@@ -37,253 +287,8 @@
             android:background="@color/green"
             android:gravity="center_horizontal"
             android:paddingRight="40dp"
-            android:text="发单"
+            android:text="@string/activity_send_send_order"
             android:textColor="@color/white"
             android:textSize="30dp" />
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="40sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="收货人:"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/nametext"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_weight="5"
-            android:hint="请输入收货人的姓名"
-
-            android:maxLines="1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:gravity="center"
-            android:id="@+id/textView2"
-            android:layout_width="40sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="手机号:"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/phonetext"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_weight="5"
-            android:hint="请输入收货人的手机号"
-
-            android:inputType="number"
-            android:maxLines="1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="40sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="快递公司:"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/company"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_weight="5"
-            android:hint="请输入物流公司"
-
-            android:maxLines="1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:gravity="center"
-            android:id="@+id/textView4"
-            android:layout_width="40sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="取货号:"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/idtext"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_weight="5"
-            android:hint="请输入收货人的取货号"
-
-            android:maxLines="1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="40sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="送达地:"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/address"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_weight="5"
-            android:hint="请输入宿舍楼号"
-
-            android:maxLines="1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="40sp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="费用:"
-            android:layout_weight="1"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/payText"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_weight="5"
-            android:hint="请输入费用(单位:元)"
-
-            android:inputType="number"
-            android:maxLines="1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="40sp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="期望送达时间:"
-            android:textColor="#000000"
-            android:textSize="15dp" />
-
-        <EditText
-            android:id="@+id/time"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_marginTop="5dp"
-            android:layout_weight="5"
-            android:hint="请输入期望送达时间"
-
-            android:maxLines="1"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/issue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="fb"
-        android:text="确认发单" />
-</LinearLayout>
-</ScrollView>
-</LinearLayout>
+</RelativeLayout>

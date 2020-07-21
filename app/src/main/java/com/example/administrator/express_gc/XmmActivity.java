@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class XmmActivity extends Activity {
@@ -18,13 +17,12 @@ public class XmmActivity extends Activity {
 
     DataHelpler dataHelpler;
     EditText etxmm;
-    Servers se;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_xmm);
 
-        etxmm = (EditText) findViewById(R.id.etxmm);
+        etxmm = findViewById(R.id.etxmm);
 
         dataHelpler=new DataHelpler(this);
 
@@ -55,27 +53,26 @@ public class XmmActivity extends Activity {
     }
 
     public void btxmm(View view) {
-        JSONObject result = null;
-        String us = null;
+        JSONObject result;
+        String us;
         Intent intent = getIntent();
         us = intent.getStringExtra("cname");
-        if (us == null || us == "") {
+        if (us == null || us.equals("")) {
             us = dataHelpler.getcname(); //获取当前用户昵称
         }
         String pw = etxmm.getText().toString().trim(); //获取输入的密码
-        String s1 = "0"; //返回值判定
-        if (pw.equals("") || pw.equals(null)) {
+        String s1; //返回值判定
+        if (pw.equals("")) {
             showmessgae("新密码不能为空！");
-            return;
         } else {
             try {
-                se.readParse("http://" + getString(R.string.ips) + "/users");
+                Servers.readParse("http://" + getString(R.string.ips) + "/users");
             } catch (Exception E) {
                 showmessgae("连接服务器超时");
                 return;
             }
             try {
-                result = new JSONObject(se.readParse("http://" + getString(R.string.ips) + "/users/xmm?us=" + us + "&pw=" + pw + ""));
+                result = new JSONObject(Servers.readParse("http://" + getString(R.string.ips) + "/users/xmm?us=" + us + "&pw=" + pw + ""));
             } catch (Exception e) {
                 showmessgae("连接服务器错误");
                 return;
@@ -90,10 +87,8 @@ public class XmmActivity extends Activity {
                 showmessgae("修改成功");
                 finish();
                 dataHelpler.deletedata(); //清空当前用户，让用户重新登录
-                return;
             } else {
                 showmessgae("修改失败");
-                return;
             }
         }
     }
@@ -101,6 +96,5 @@ public class XmmActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 }

@@ -13,9 +13,6 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,10 +28,9 @@ public class Receive_orderActivity extends Activity {
     public ListView orderlist;
     OrderAdapter orderAdapter;
 
-    Servers se;
     DataHelpler dataHelpler;
-    public static ArrayList<String> s1=new ArrayList<>();
-    public static ArrayList<String> s2=new ArrayList<>();
+    public static ArrayList<String> s1 = new ArrayList<>();
+    public static ArrayList<String> s2 = new ArrayList<>();
     public static String ss;
 
     private GestureDetector mGestureDetector;
@@ -49,9 +45,9 @@ public class Receive_orderActivity extends Activity {
 
         dataHelpler = new DataHelpler(this);
 
-        textView = (TextView) findViewById(R.id.tex5);
+        textView = findViewById(R.id.tex5);
         intent = getIntent();
-        ss = intent.getStringExtra("state").trim().toString();
+        ss = intent.getStringExtra("state").trim();
         textView.setText(ss);
 
         mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
@@ -70,71 +66,60 @@ public class Receive_orderActivity extends Activity {
         });
 
 
-        nm=dataHelpler.getcname();
-        if(nm==null){
+        nm = dataHelpler.getcname();
+        if (nm == null) {
             showmessgae("未登录");
             finish();
-            Intent intent1=new Intent(this, DengluActivity.class);
+            Intent intent1 = new Intent(this, DengluActivity.class);
             startActivity(intent1);
-            return ;
+            return;
         }
         States(textView.getText().toString().trim());
     }
 
     public void States(String s) {
         String result = null;
-        String s9 = null;
-        String s10=null;
         try {
-            se.readParse("http://" + getString(R.string.ips) + "/orders");
+            Servers.readParse("http://" + getString(R.string.ips) + "/orders");
         } catch (Exception E) {
             showmessgae("连接服务器超时");
             return;
         }
         try {
             if (s.equals("接单")) {
-                result = se.readParse("http://" + getString(R.string.ips) + "/orders/chaxun");
+                result = Servers.readParse("http://" + getString(R.string.ips) + "/orders/chaxun");
             }
             if (s.equals("已发订单")) {
-                result = se.readParse("http://" + getString(R.string.ips) + "/orders/chaxunF?rs=" + nm + "");
+                result = Servers.readParse("http://" + getString(R.string.ips) + "/orders/chaxunF?rs=" + nm + "");
             }
             if (s.equals("已接订单")) {
-                result = se.readParse("http://" + getString(R.string.ips) + "/orders/chaxunJ?rc=" + nm + "");
+                result = Servers.readParse("http://" + getString(R.string.ips) + "/orders/chaxunJ?rc=" + nm + "");
             }
         } catch (Exception e) {
             showmessgae("连接服务器错误");
             return;
         }
         try {
-            if(result==null){
+            if (result == null) {
                 showmessgae("无数据");
-            }
-            else{
+            } else {
                 s1.clear();
                 s2.clear();
-//                for (int i = 0; i < result.length(); i++) {
-//                    JSON.parseObject(JSON,result.auto_nums);
-//                    s9=result.getJSONObject(i).getString("auto_nums");
-//                    s10=result.getJSONObject(i).getString("exc");
-//                    s1.add(s9);
-//                    s2.add(s10);
-//                }
 
-                List<HashMap> list =JSON.parseArray(result, HashMap.class);
-                for(int i=0;i<list.size();i++){
+                List<HashMap> list = JSON.parseArray(result, HashMap.class);
+                for (int i = 0; i < list.size(); i++) {
                     s1.add(list.get(i).get("auto_nums").toString());
                     s2.add(list.get(i).get("exc").toString());
                 }
             }
         } catch (Exception e) {
-            Log.e("错误2222222！！！！！",e.toString());
+            Log.e("错误2222222！！！！！", e.toString());
             showmessgae("数据异常,请重新进入");
             return;
         }
-        orderlist = (ListView) findViewById(R.id.orderl2);
+        orderlist = findViewById(R.id.orderl2);
         orderAdapter = new OrderAdapter(this);
         orderlist.setAdapter(orderAdapter);
-        return;
     }
 
 
@@ -146,7 +131,6 @@ public class Receive_orderActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 
     public void bcro(View view) {
@@ -161,18 +145,10 @@ public class Receive_orderActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (isPause){ //判断是否暂停
+        if (isPause) { //判断是否暂停
             isPause = false;
             //orderAdapter.notifyDataSetChanged();//刷新
             States(textView.getText().toString().trim());
-        }
-    }
-    private void delay(int ms){
-        try {
-            Thread.currentThread();
-            Thread.sleep(ms);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }

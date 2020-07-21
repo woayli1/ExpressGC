@@ -20,8 +20,6 @@
             android:id="@+id/imageButton3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignBottom="@+id/textViee5"
-            android:layout_alignTop="@+id/textViee5"
             android:src="@drawable/back" />
 
         <TextView
@@ -31,7 +29,7 @@
             android:layout_height="wrap_content"
             android:background="@color/green"
             android:gravity="center_horizontal"
-            android:text="新密码"
+            android:text="@string/activity_xmm_new_password"
             android:textColor="@color/white"
             android:textSize="30dp" />
     </LinearLayout>
@@ -53,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="新密码:"
+            android:text="@string/activity_xmm_new_password_2"
             android:textSize="20sp" />
 
         <EditText
@@ -64,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:ems="10"
-            android:hint="新密码"
+            android:hint="@string/activity_xmm_new_password_3"
             android:inputType="textPersonName" />
     </LinearLayout>
 
@@ -76,7 +74,7 @@
         android:layout_below="@+id/linearLayout3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        android:text="确定"
+        android:text="@string/activity_xmm_button_confirm"
         android:textColor="#888888"
         android:textSize="25sp" />
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,8 +19,6 @@
             android:id="@+id/imageButton3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignBottom="@+id/textViee5"
-            android:layout_alignTop="@+id/textViee5"
             android:src="@drawable/back" />
 
         <TextView
@@ -31,7 +28,7 @@
             android:layout_height="wrap_content"
             android:background="@color/green"
             android:gravity="center_horizontal"
-            android:text="快递查询"
+            android:text="@string/activity_chaxun_express_check"
             android:textColor="@color/white"
             android:textSize="30dp" />
     </LinearLayout>
@@ -52,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="快递公司:"
+            android:text="@string/activity_chaxun_express_company"
             android:textSize="20sp" />
 
         <Spinner
@@ -82,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="快递单号:"
+            android:text="@string/activity_chaxun_express_number"
             android:textSize="20sp" />
 
         <EditText
@@ -91,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="快递单号"
+            android:hint="@string/activity_chaxun_express_number_2"
             android:inputType="number" />
     </LinearLayout>
 
@@ -103,7 +100,7 @@
         android:layout_below="@+id/linearLayout3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
-        android:text="查询"
+        android:text="@string/activity_chaxun_query"
         android:textColor="#888888"
         android:textSize="25sp" />
 

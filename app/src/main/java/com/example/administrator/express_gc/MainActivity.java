@@ -27,8 +27,6 @@ public class MainActivity extends Activity {
 
     Intent intent;
 
-    Servers se;
-
     DataHelpler dataHelpler;
 
     @Override
@@ -36,20 +34,18 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (android.os.Build.VERSION.SDK_INT > 9) {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         dataHelpler = new DataHelpler(this);
 
-        textView = (TextView) findViewById(R.id.textView);
-        textView2 = (TextView) findViewById(R.id.textView2);
-        textView3 = (TextView) findViewById(R.id.textView3);
-        textView4 = (TextView) findViewById(R.id.textView4);
+        textView = findViewById(R.id.textView);
+        textView2 = findViewById(R.id.textView2);
+        textView3 = findViewById(R.id.textView3);
+        textView4 = findViewById(R.id.textView4);
 
-        button = (Button) findViewById(R.id.button);
-        button2 = (Button) findViewById(R.id.button2);
+        button = findViewById(R.id.button);
+        button2 = findViewById(R.id.button2);
 
         textView.setOnClickListener(new View.OnClickListener() {
 
@@ -94,9 +90,9 @@ public class MainActivity extends Activity {
 
     public void lianjie() {
         String s2 = "连接服务器失败";
-        JSONArray result = null;
+        JSONArray result;
         try {
-            result = new JSONArray(se.readParse("http://" + getString(R.string.ips) + "/users"));
+            result = new JSONArray(Servers.readParse("http://" + getString(R.string.ips) + "/users"));
         } catch (Exception e) {
             showmessgae("连接服务器超时");
             return;
@@ -114,7 +110,7 @@ public class MainActivity extends Activity {
 
     public void dl(){
         String s=dataHelpler.getcname();
-        if(s == null || s == ""){
+        if(s == null || s.equals("")){
             showmessgae("未登录");
         }
     }
@@ -122,7 +118,6 @@ public class MainActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 
     public void bonclick(View view) {
@@ -135,12 +130,6 @@ public class MainActivity extends Activity {
         intent.putExtra("state", "接单");
         startActivity(intent);
     }
-    TimerTask task= new TimerTask() {
-        @Override
-        public void run() {
-
-        }
-    };
 
     private static boolean isExit = false;
 

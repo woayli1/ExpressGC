@@ -15,14 +15,15 @@ public class DataHelpler extends SQLiteOpenHelper {
     protected static final String cname = "cname";
     protected static final String names = "names";
     protected static final String num = "num";
-    protected static final int version=1;
+    protected static final int version = 1;
 
 
     public DataHelpler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
-    public DataHelpler(Context context){
-        this(context,users,null,version);
+
+    public DataHelpler(Context context) {
+        this(context, users, null, version);
     }
 
     @Override
@@ -35,8 +36,9 @@ public class DataHelpler extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT cname  FROM '" + users + "';", null);
         while (cursor.moveToNext()) {
-            cname = cursor.getString(0).toString();
+            cname = cursor.getString(0);
         }
+        cursor.close();
         db.close();
         return cname;
     }

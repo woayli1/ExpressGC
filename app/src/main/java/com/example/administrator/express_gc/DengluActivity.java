@@ -1,10 +1,8 @@
 package com.example.administrator.express_gc;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,8 +21,6 @@ public class DengluActivity extends Activity {
     TextView dlzc;
     TextView dlzh;
 
-    Servers se;
-
     Intent intent;
 
     DataHelpler dataHelpler;
@@ -34,10 +30,10 @@ public class DengluActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_denglu);
 
-        dlus = (EditText) findViewById(R.id.dlus);
-        dlpw = (EditText) findViewById(R.id.dlpw);
-        dlzc=(TextView)findViewById(R.id.dlzc);
-        dlzh=(TextView)findViewById(R.id.dlzh);
+        dlus = findViewById(R.id.dlus);
+        dlpw = findViewById(R.id.dlpw);
+        dlzc= findViewById(R.id.dlzc);
+        dlzh= findViewById(R.id.dlzh);
 
         dataHelpler=new DataHelpler(this);
 
@@ -88,23 +84,21 @@ public class DengluActivity extends Activity {
         String us = dlus.getText().toString().trim();
         String pw = dlpw.getText().toString().trim();
 
-        JSONArray result = null;
-        String s2 = null; //存放昵称
-        String s3 = null; //存放姓名
-        String s4 = null; //存放手机号
-        if (us.equals("") || pw.equals("") || us.equals(null)
-                || pw.equals(null)) {
+        JSONArray result;
+        String s2; //存放昵称
+        String s3; //存放姓名
+        String s4; //存放手机号
+        if (us.equals("") || pw.equals("")) {
             showmessgae("用户名或密码不能为空！");
-            return;
         } else {
             try{
-                se.readParse("http://"+getString(R.string.ips) + "/users");
+                Servers.readParse("http://"+getString(R.string.ips) + "/users");
             }catch (Exception E){
                 showmessgae("连接服务器超时");
                 return;
             }
             try {
-                result = new JSONArray(se.readParse("http://"+getString(R.string.ips) + "/users/yanzeng?us=" + us + "&pw=" + pw + ""));
+                result = new JSONArray(Servers.readParse("http://"+getString(R.string.ips) + "/users/yanzeng?us=" + us + "&pw=" + pw + ""));
             } catch (Exception e) {
                 showmessgae("连接服务器错误");
                 dlus.setText("");
@@ -121,16 +115,14 @@ public class DengluActivity extends Activity {
                 dlpw.setText("");
                 return;
             }
-            if (s2.equals("") || s2.equals(null)) {
+            if (s2.equals("")) {
                 showmessgae("用户名或密码错误");
                 dlus.setText("");
                 dlpw.setText("");
-                return;
             } else {
                 showmessgae("" + s2 + " 欢迎登录");
                 dataHelpler.insertdata(s2,s3,s4);
                 finish();
-                return;
             }
         }
     }
@@ -138,6 +130,5 @@ public class DengluActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 }

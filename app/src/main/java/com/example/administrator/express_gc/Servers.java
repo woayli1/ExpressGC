@@ -12,8 +12,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2017/12/25.
@@ -24,7 +22,7 @@ public class Servers extends Activity{
     public static String readParse(String urlPath) throws Exception {
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         byte[] data = new byte[1024];
-        int len = 0;
+        int len;
         URL url = new URL(urlPath);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setConnectTimeout(3000);
@@ -39,15 +37,13 @@ public class Servers extends Activity{
 
     public static ArrayList<HashMap<String, Object>> Analysis(String jsonStr)
             throws JSONException {
-        /******************* 解析 ***********************/
-        JSONArray jsonArray = null;
         // 初始化list数组对象
-        ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
-        jsonArray = new JSONArray(jsonStr);
+        ArrayList<HashMap<String, Object>> list = new ArrayList<>();
+        JSONArray jsonArray = new JSONArray(jsonStr);
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             // 初始化map数组对象
-            HashMap<String, Object> map = new HashMap<String, Object>();
+            HashMap<String, Object> map = new HashMap<>();
             map.put("cname", jsonObject.getString("cname"));
             map.put("names", jsonObject.getString("names"));
             map.put("pwd", jsonObject.getString("pwd"));

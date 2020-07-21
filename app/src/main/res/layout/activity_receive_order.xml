@@ -12,8 +12,6 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:background="@color/green"
         android:orientation="horizontal">
 
@@ -21,8 +19,6 @@
             android:id="@+id/imageButton3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignBottom="@+id/tex5"
-            android:layout_alignTop="@+id/tex5"
             android:background="@color/green"
             android:onClick="bcro"
             android:src="@drawable/back" />
@@ -34,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingRight="40dp"
-            android:text="订单详情"
+            android:text="@string/activity_receive_order_order_details"
             android:textColor="@color/white"
             android:textSize="30sp" />
     </LinearLayout>
@@ -43,7 +39,7 @@
     <ListView
         android:id="@+id/orderl2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1" />
 
 

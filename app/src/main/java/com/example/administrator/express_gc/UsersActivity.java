@@ -3,7 +3,8 @@ package com.example.administrator.express_gc;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.GestureDetector;
@@ -18,9 +19,12 @@ public class UsersActivity extends Activity {
     private GestureDetector mGestureDetector;
 
     TextView te5;
+    TextView te6;
     Button dlbl;
 
     Intent int1;
+
+    PackageManager packageManager;
 
     DataHelpler dataHelpler;
 
@@ -29,10 +33,11 @@ public class UsersActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
 
-        te5 = (TextView) findViewById(R.id.te5);
-        dlbl = (Button) findViewById(R.id.dlbl);
+        te5 = findViewById(R.id.te5);
+        te6 = findViewById(R.id.t6);
+        dlbl = findViewById(R.id.dlbl);
 
-        dataHelpler=new DataHelpler(this);
+        dataHelpler = new DataHelpler(this);
 
         mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override
@@ -66,15 +71,16 @@ public class UsersActivity extends Activity {
 
         youdu();
     }
+
     //dataHelpler.getcname();
-    public void youdu(){
-        String s10=dataHelpler.getcname();;
+    public void youdu() {
+        String s10 = dataHelpler.getcname();
 //        try{
 //         s10=dataHelpler.getcname();}
 //        catch (Exception e){
 //            int1 = new Intent(this, DengluActivity.class);
 //        }
-        if(s10 == null || s10 == ""){
+        if (s10 == null || s10.equals("")) {
 
             int1 = new Intent(this, DengluActivity.class);
         } else {
@@ -82,6 +88,14 @@ public class UsersActivity extends Activity {
             dlbl.setText(s10);
             int1 = new Intent(this, XmmActivity.class);
             int1.putExtra("cname", s10);
+        }
+
+        packageManager = getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(getPackageName(), 0);
+            te6.setText(String.format(getResources().getString(R.string.activity_users_version), packageInfo.versionName));
+        } catch (PackageManager.NameNotFoundException e) {
+            te6.setText(R.string.activity_users_version_err);
         }
     }
 
@@ -101,11 +115,10 @@ public class UsersActivity extends Activity {
     }
 
     public void tcdl(View view) {
-        String s=dataHelpler.getcname();
-        if(s == null || s == ""){
+        String s = dataHelpler.getcname();
+        if (s == null || s.equals("")) {
             showmessgae("您未登录");
-        }
-        else{
+        } else {
             dialog2();
         }
     }
@@ -127,11 +140,10 @@ public class UsersActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 
     public void usaa(View view) {
-        Intent intent=new Intent(this,aboutAuthorActivity.class);
+        Intent intent = new Intent(this, aboutAuthorActivity.class);
         startActivity(intent);
     }
 }

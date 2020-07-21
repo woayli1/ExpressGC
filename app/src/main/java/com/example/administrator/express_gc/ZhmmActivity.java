@@ -18,7 +18,6 @@ public class ZhmmActivity extends Activity {
     EditText etzhm; //存放输入的姓名
     EditText etzhm2; //存放输入的手机号
 
-    Servers se;
     DataHelpler dataHelpler;
 
     @Override
@@ -26,8 +25,8 @@ public class ZhmmActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zhmm);
 
-        etzhm=(EditText)findViewById(R.id.etzhmm);
-        etzhm2=(EditText)findViewById(R.id.etzhmm2);
+        etzhm= findViewById(R.id.etzhmm);
+        etzhm2= findViewById(R.id.etzhmm2);
 
         dataHelpler=new DataHelpler(this);
 
@@ -51,23 +50,19 @@ public class ZhmmActivity extends Activity {
         String s=etzhm.getText().toString().trim(); //获取输入的姓名
         String s1=etzhm2.getText().toString().trim(); //获取输入的手机号
 
-        JSONArray result = null;
-        String s2=null;
-        String s3=null;
-        String s4=null;
-        if (s.equals("") || s1.equals("") || s.equals(null)
-                || s1.equals(null)) {
+        JSONArray result;
+        String s2;
+        if (s.equals("") || s1.equals("")) {
             showmessgae("姓名或手机号不能为空！");
-            return;
         } else {
             try{
-                se.readParse("http://"+getString(R.string.ips) + "/users");
+                Servers.readParse("http://"+getString(R.string.ips) + "/users");
             }catch (Exception E){
                 showmessgae("连接服务器超时");
                 return;
             }
             try {
-                result = new JSONArray(se.readParse("http://"+getString(R.string.ips) + "/users/zhmm?names=" + s + "&num=" + s1 + ""));
+                result = new JSONArray(Servers.readParse("http://"+getString(R.string.ips) + "/users/zhmm?names=" + s + "&num=" + s1 + ""));
             } catch (Exception e) {
                 showmessgae("连接服务器错误");
                 etzhm.setText("");
@@ -82,11 +77,10 @@ public class ZhmmActivity extends Activity {
                 etzhm2.setText("");
                 return;
             }
-            if (s2.equals("") || s2.equals(null)) {
+            if (s2.equals("")) {
                 showmessgae("姓名或手机号错误");
                 etzhm.setText("");
                 etzhm2.setText("");
-                return;
             } else {
                 etzhm.setText("");
                 etzhm2.setText("");
@@ -94,7 +88,6 @@ public class ZhmmActivity extends Activity {
                 Intent intent = new Intent(this, XmmActivity.class);
                 intent.putExtra("cname",s2);
                 startActivity(intent);
-                return;
             }
         }
 
@@ -102,7 +95,6 @@ public class ZhmmActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 
     public boolean onTouchEvent(MotionEvent event) {

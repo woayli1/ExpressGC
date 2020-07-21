@@ -26,8 +26,8 @@ public class ChaxunActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chaxun);
 
-        spincx = (Spinner) findViewById(R.id.spincx);
-        etcx = (EditText) findViewById(R.id.etcx);
+        spincx = findViewById(R.id.spincx);
+        etcx = findViewById(R.id.etcx);
 
         mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override
@@ -50,7 +50,7 @@ public class ChaxunActivity extends Activity {
         String com = spincx.getSelectedItem().toString();
         String nu = etcx.getText().toString().trim();
 
-        if (nu == null || nu.length() <= 0) {
+        if (nu.length() <= 0) {
             showmessgae("快递单号不能为空");
             return;
         }
@@ -74,7 +74,6 @@ public class ChaxunActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 
     public void bccx(View view) {

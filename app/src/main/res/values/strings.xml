@@ -4,12 +4,166 @@
 
     <string name="app_name">校园递</string>
     <string name="main_name">校园递</string>
+
     <string name="title_activity_users">UsersActivity</string>
     <string name="title_activity_denglu">DengluActivity</string>
     <string name="title_activity_zhuce">ZhuceActivity</string>
     <string name="title_activity_zhmm">ZhmmActivity</string>
     <string name="title_activity_xmm">XmmActivity</string>
     <string name="title_activity_chaxun">ChaxunActivity</string>
+    <string name="title_activity_about_author">aboutAuthorActivity</string>
+    <string name="title_activity_chakan">ChakanActivity</string>
+
+    <string name="activity_about_author_about_author">关于作者</string>
+
+    <!-- activity_about_author start -->
+    <string name="activity_about_author_txt">　　我是上海师范大学-信息与机电工程学院-计算机科学与技术专业-的2014届本科毕业生郭灿。"\n"　　此款app由我个人独自完成，经过大量的测试，也许会有漏掉的BUG，在使用中出现BUG时，还请多多见谅，也可直接联系我的邮箱，将BUG告知我，我再做调试修改。"\n"　　邮箱地址：guocan537@outlook.com</string>
+    <string name="activity_chakan_order_details">订单详情</string>
+    <!-- activity_about_author end -->
+
+    <!-- activity_chakan start -->
+    <string name="activity_chakan_consignee">收货人:</string>
+    <string name="activity_chakan_not_input_consignee_name">未输入收货人姓名</string>
+
+    <string name="activity_chakan_order_courier">接单者:</string>
+    <string name="activity_chakan_no_order_courier">未被接单</string>
+
+    <string name="activity_chakan_phone">手机号:</string>
+    <string name="activity_chakan_not_input_phone">未输入手机号</string>
+
+    <string name="activity_chakan_express_company">快递公司:</string>
+    <string name="activity_chakan_not_input_courier_company">未输入快递公司</string>
+
+    <string name="activity_chakan_pickUP_code">取件码:</string>
+    <string name="activity_chakan_not_input_pickUP_code">未输入取件码</string>
+
+    <string name="activity_chakan_address">送达地:</string>
+    <string name="activity_chakan_not_input_address">未输入宿舍楼号</string>
+
+    <string name="activity_chakan_pay">费用:</string>
+    <string name="activity_chakan_not_input_pay">未输入费用</string>
+
+    <string name="activity_chakan_time">送达时间:</string>
+    <string name="activity_chakan_not_input_time">未输入期望送达时间</string>
+
+    <string name="activity_chakan_confirm_receipt">确认收货</string>
+
+    <string name="activity_chakan_button_cancel_order">取消订单</string>
+    <string name="activity_chakan_button_take_order">确认接单</string>
+    <string name="activity_chakan_button_confirm_delivery">确认送达</string>
+    <string name="activity_chakan_button_delete_order">删除接单</string>
+    <!-- activity_chakan end -->
+
+    <!-- activity_chaxun start -->
+    <string name="activity_chaxun_express_check">快递查询</string>
+    <string name="activity_chaxun_express_company">快递公司:</string>
+    <string name="activity_chaxun_express_number">快递单号:</string>
+    <string name="activity_chaxun_express_number_2">快递单号</string>
+    <string name="activity_chaxun_query">查询</string>
+    <!-- activity_chaxun end -->
+
+    <!-- activity_denglu start -->
+    <string name="activity_denglu_LogIN">登录</string>
+    <string name="activity_denglu_user_name">用户名:</string>
+    <string name="activity_denglu_account">昵称/姓名/手机号</string>
+    <string name="activity_denglu_password">密码:</string>
+    <string name="activity_denglu_password_2">密码</string>
+    <string name="activity_denglu_register_account">注册账号</string>
+    <string name="activity_denglu_forget_password">忘记密码？</string>
+
+    <string name="activity_denglu_button_LogIN">登录</string>
+    <!-- activity_denglu end -->
+
+    <!-- activity_main start -->
+    <string name="activity_main_sent_order">已发订单</string>
+    <string name="activity_main_taken_order">已接订单</string>
+    <string name="activity_main_express_check">快递查询</string>
+    <string name="activity_main_personal_center">个人中心</string>
+
+    <string name="activity_main_send_order">我要发单</string>
+    <string name="activity_main_take_order">我接发单</string>
+    <!-- activity_main end -->
+
+    <!-- activity_receive_order start -->
+    <string name="activity_receive_order_order_details">订单详情</string>
+    <!-- activity_receive_order end -->
+
+    <!-- activity_send start -->
+    <string name="activity_send_send_order">发单</string>
+
+    <string name="activity_send_button_confirm_take_order">确认接单</string>
+
+    <string name="activity_send_consignee">收货人:</string>
+    <string name="activity_send_input_consignee">请输入收货人的姓名</string>
+
+    <string name="activity_send_phone">手机号:</string>
+    <string name="activity_send_input_phone">请输入收货人的手机号</string>
+
+    <string name="activity_send_express">快递公司:</string>
+    <string name="activity_send_input_express">请输入物流公司</string>
+
+    <string name="activity_send_pickup_code">取货号:</string>
+    <string name="activity_send_input_pickup_code">请输入取货号</string>
+
+    <string name="activity_send_address">送达地:</string>
+    <string name="activity_send_input_address">请输入宿舍楼号</string>
+
+    <string name="activity_send_pay">费用:</string>
+    <string name="activity_send_input_pay">请输入费用（单位：元）</string>
+
+    <string name="activity_send_time">期望送达时间:</string>
+    <string name="activity_send_input_time">请输入期望送达时间</string>
+    <!-- activity_send end -->
+
+    <!-- activity_users start -->
+    <string name="activity_users_button_LogIn">登录</string>
+    <string name="activity_users_button_about_author">关于作者</string>
+    <string name="activity_users_button_LogOut">退出登录</string>
+
+    <string name="activity_users_not_LogIn">还未登录</string>
+    <string name="activity_users_personal_center">个人中心</string>
+
+    <string name="activity_users_version">V%1$s</string>
+    <string name="activity_users_version_err">获取版本号错误</string>
+    <!-- activity_users end -->
+
+    <!-- activity_xmm start -->
+    <string name="activity_xmm_new_password">新密码</string>
+    <string name="activity_xmm_new_password_2">新密码:</string>
+    <string name="activity_xmm_new_password_3">新密码</string>
+
+    <string name="activity_xmm_button_confirm">确定</string>
+
+    <!-- activity_xmm start -->
+    <string name="avtivity_zhmm_back_password">找回密码</string>
+    <string name="avtivity_zhmm_name">姓名:</string>
+    <string name="avtivity_zhmm_name_2">姓名</string>
+    <string name="avtivity_zhmm_phone">手机号:</string>
+    <string name="avtivity_zhmm_phone_2">手机</string>
+    <string name="avtivity_zhmm_confirm">确认</string>
+    <!-- activity_xmm end -->
+
+    <!-- activity_zhuce start -->
+    <string name="activity_zhuce_register">注册</string>
+
+    <string name="activity_zhuce_nickname">昵称:</string>
+    <string name="activity_zhuce_nickname_2">昵称</string>
+
+    <string name="activity_zhuce_name">姓名:</string>
+    <string name="activity_zhuce_name_2">姓名</string>
+
+    <string name="activity_zhuce_password">密码:</string>
+    <string name="activity_zhuce_password_2">密码</string>
+
+    <string name="activity_zhuce_phone">手机号:</string>
+    <string name="activity_zhuce_phone_2">手机号</string>
+
+    <string name="activity_zhuce_button_register">注册</string>
+    <!-- activity_zhuce end -->
+
+    <!-- messagelist start -->
+    <string name="messagelist_button_order_details">订单详情</string>
+    <!-- messagelist end -->
 
     <string-array name="items">
         <item>ems快递</item>
@@ -25,5 +179,6 @@
         <item>宅急送</item>
         <item>中通速递</item>
     </string-array>
-    <string name="title_activity_about_author">aboutAuthorActivity</string>
+
+
 </resources>

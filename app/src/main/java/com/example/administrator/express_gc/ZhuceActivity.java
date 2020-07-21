@@ -1,6 +1,5 @@
 package com.example.administrator.express_gc;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.GestureDetector;
@@ -10,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class ZhuceActivity extends Activity {
 
@@ -21,17 +19,15 @@ public class ZhuceActivity extends Activity {
     EditText etzc3;  //存放密码
     EditText etzc4;  //存放手机号
 
-    Servers se;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zhuce);
 
-        etzc = (EditText) findViewById(R.id.etzc);
-        etzc2 = (EditText) findViewById(R.id.etzc2);
-        etzc3 = (EditText) findViewById(R.id.etzc3);
-        etzc4 = (EditText) findViewById(R.id.etzc4);
+        etzc = findViewById(R.id.etzc);
+        etzc2 = findViewById(R.id.etzc2);
+        etzc3 = findViewById(R.id.etzc3);
+        etzc4 = findViewById(R.id.etzc4);
 
         mGestureDetector = new GestureDetector(this, new GestureDetector.SimpleOnGestureListener() {
             @Override
@@ -51,27 +47,27 @@ public class ZhuceActivity extends Activity {
 
     public void zc(View view) {
 
-        JSONArray result = null;
+        JSONArray result;
 
         String s = etzc.getText().toString().trim();  //昵称
         String s2 = etzc2.getText().toString().trim();  //姓名
         String s3 = etzc3.getText().toString().trim();  //密码
         String s4 = etzc4.getText().toString().trim();  //手机号
-        String s5=null;//注册结果
+        String s5;//注册结果
 
-        if (s == null || s.length() <= 0) {
+        if (s.length() <= 0) {
             showmessgae("昵称不能为空");
             return;
         }
-        if (s2 == null || s2.length() <= 0) {
+        if (s2.length() <= 0) {
             showmessgae("姓名不能为空");
             return;
         }
-        if (s3 == null || s3.length() <= 0) {
+        if (s3.length() <= 0) {
             showmessgae("密码不能为空");
             return;
         }
-        if (s4 == null || s4.length() <= 0) {
+        if (s4.length() <= 0) {
             showmessgae("手机号不能为空");
             return;
         }
@@ -81,13 +77,13 @@ public class ZhuceActivity extends Activity {
         }
 
         try {
-            se.readParse("http://" + getString(R.string.ips) + "/users");
+            Servers.readParse("http://" + getString(R.string.ips) + "/users");
         } catch (Exception E) {
             showmessgae("连接服务器超时");
             return;
         }
         try {   //验证昵称
-            result = new JSONArray(se.readParse("http://" + getString(R.string.ips) + "/users/yznc?cnm=" + s + ""));
+            result = new JSONArray(Servers.readParse("http://" + getString(R.string.ips) + "/users/yznc?cnm=" + s + ""));
         } catch (Exception e) {
             showmessgae("连接服务器错误");
             return;
@@ -97,7 +93,7 @@ public class ZhuceActivity extends Activity {
             return;
         }
         try {   //验证手机号
-            result = new JSONArray(se.readParse("http://" + getString(R.string.ips) + "/users/yznu?num=" + s4 + ""));
+            result = new JSONArray(Servers.readParse("http://" + getString(R.string.ips) + "/users/yznu?num=" + s4 + ""));
         } catch (Exception e) {
             showmessgae("连接服务器错误");
             return;
@@ -107,7 +103,7 @@ public class ZhuceActivity extends Activity {
             return;
         }
         try {   //验证姓名
-            result = new JSONArray(se.readParse("http://" + getString(R.string.ips) + "/users/yzxm?us=" + s2 + ""));
+            result = new JSONArray(Servers.readParse("http://" + getString(R.string.ips) + "/users/yzxm?us=" + s2 + ""));
         } catch (Exception e) {
             showmessgae("连接服务器错误");
             return;
@@ -117,7 +113,7 @@ public class ZhuceActivity extends Activity {
             return;
         }
         try {   //执行注册
-            result = new JSONArray("["+se.readParse("http://" + getString(R.string.ips) + "/users/zc?cnm=" + s + "&num=" + s4 + "&us=" + s2 + "&pw=" + s3 + "")+"]");
+            result = new JSONArray("["+ Servers.readParse("http://" + getString(R.string.ips) + "/users/zc?cnm=" + s + "&num=" + s4 + "&us=" + s2 + "&pw=" + s3 + "")+"]");
         } catch (Exception e) {
             showmessgae("注册失败");
             return;
@@ -150,7 +146,6 @@ public class ZhuceActivity extends Activity {
 
     public void showmessgae(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-        return;
     }
 
     public void bczc(View view) {

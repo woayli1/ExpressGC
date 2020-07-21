@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +19,8 @@
             android:id="@+id/imageButton3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/back" />
+            android:src="@drawable/back"
+            android:contentDescription="@null" />
 
         <TextView
             android:paddingRight="40dp"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:background="@color/green"
             android:gravity="center_horizontal"
-            android:text="关于作者"
+            android:text="@string/activity_about_author_about_author"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
@@ -40,7 +40,6 @@
         android:layout_below="@id/aaly"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="TextView"
         android:textSize="15sp"/>
 
 </RelativeLayout>

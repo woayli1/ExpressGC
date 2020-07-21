@@ -9,6 +9,14 @@
     tools:context="com.example.administrator.express_gc.MainActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/a1" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,13 +27,13 @@
             android:layout_height="wrap_content"
             android:background="@color/green"
             android:orientation="horizontal"
-            android:paddingBottom="20dp"
             android:paddingLeft="20dp"
+            android:paddingTop="20dp"
             android:paddingRight="20dp"
-            android:paddingTop="20dp">
+            android:paddingBottom="20dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -36,13 +44,6 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:src="@drawable/a1"
-        android:id="@+id/imageView" />
-
     <LinearLayout
 
         android:layout_width="match_parent"
@@ -51,23 +52,25 @@
         android:orientation="horizontal">
 
         <TextView
-            android:clickable="true"
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="已发订单"
+            android:text="@string/activity_main_sent_order"
             android:textSize="35sp" />
 
         <TextView
-            android:clickable="true"
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="已接订单"
+            android:text="@string/activity_main_taken_order"
             android:textSize="35sp" />
     </LinearLayout>
 
@@ -78,24 +81,26 @@
         android:orientation="horizontal">
 
         <TextView
-            android:clickable="true"
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:textSize="35sp"
-            android:text="快递查询" />
+            android:text="@string/activity_main_express_check"
+            android:textSize="35sp" />
 
         <TextView
-            android:clickable="true"
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:textSize="35sp"
-            android:text="个人中心" />
+            android:text="@string/activity_main_personal_center"
+            android:textSize="35sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -105,20 +110,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:onClick="bonclick"
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="我要发单" />
+            android:onClick="bonclick"
+            android:text="@string/activity_main_send_order" />
 
         <Button
-            android:onClick="b2onclick"
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="我要接单" />
+            android:onClick="b2onclick"
+            android:text="@string/activity_main_take_order" />
     </LinearLayout>
 
 </RelativeLayout>
