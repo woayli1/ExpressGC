@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.administrator.express_gc">
+    package="com.gc.expressOL">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".WelcomeActivity"
+            android:name="com.gc.expressOL.activity.WelcomeActivity"
+            android:exported="true"
             android:theme="@style/AppWelcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,43 +25,41 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.gc.expressOL.activity.MainActivity"
             android:label="MainActivity" />
 
         <activity
-            android:name=".Receive_orderActivity"
+            android:name="com.gc.expressOL.activity.ReceiveOrderActivity"
             android:label="Receive_orderActivity" />
         <activity
-            android:name=".SendActivity"
+            android:name="com.gc.expressOL.activity.SendActivity"
             android:label="SendActivity" />
         <activity
-            android:name=".UsersActivity"
+            android:name="com.gc.expressOL.activity.UsersActivity"
             android:label="@string/title_activity_users" />
         <activity
-            android:name=".DengluActivity"
+            android:name="com.gc.expressOL.activity.DengluActivity"
             android:label="@string/title_activity_denglu" />
         <activity
-            android:name=".ZhuceActivity"
+            android:name="com.gc.expressOL.activity.ZhuceActivity"
             android:label="@string/title_activity_zhuce" />
         <activity
-            android:name=".ZhmmActivity"
+            android:name="com.gc.expressOL.activity.ZhmmActivity"
             android:label="@string/title_activity_zhmm" />
         <activity
-            android:name=".XmmActivity"
+            android:name="com.gc.expressOL.activity.XmmActivity"
             android:label="@string/title_activity_xmm" />
         <activity
-            android:name=".ChaxunActivity"
+            android:name="com.gc.expressOL.activity.ChaxunActivity"
             android:label="@string/title_activity_chaxun" />
         <activity
-            android:name=".ChakanActivity"
+            android:name="com.gc.expressOL.activity.ChakanActivity"
             android:label="@string/title_activity_chakan" />
         <activity
-            android:name=".aboutAuthorActivity"
+            android:name="com.gc.expressOL.activity.aboutAuthorActivity"
             android:label="@string/title_activity_about_author" />
 
 
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

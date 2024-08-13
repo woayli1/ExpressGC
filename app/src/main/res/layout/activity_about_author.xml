@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.express_gc.aboutAuthorActivity">
+    tools:context="com.gc.expressOL.activity.aboutAuthorActivity">
 
     <LinearLayout
         android:id="@+id/aaly"

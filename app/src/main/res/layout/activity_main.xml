@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context="com.example.administrator.express_gc.MainActivity">
+    tools:context="com.gc.expressOL.activity.MainActivity">
 
 
     <ImageView

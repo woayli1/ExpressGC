@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context="com.example.administrator.express_gc.UsersActivity">
+    tools:context="com.gc.expressOL.activity.UsersActivity">
 
     <Button
         android:id="@+id/dlbl"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.administrator.express_gc.ChakanActivity">
+    tools:context="com.gc.expressOL.activity.ChakanActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
