@@ -1,15 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="@android:style/Theme.Light.NoTitleBar">
+    <style name="AppTheme" parent="android:Theme.Light.NoTitleBar">
         <!-- Customize your theme here. -->
-        <!--<item name="colorPrimary">@android:color/holo_blue_bright</item>-->
+        <item name="colorPrimary">@color/colorPrimary</item>
         <!--<item name="colorPrimaryDark">@android:color/background_dark</item>-->
         <!--<item name="colorAccent">@color/colorAccent</item>-->
     </style>
 
-    <style name="AppWelcome" parent="AppTheme">
+    <style name="AppWelcome" parent="android:Theme.NoTitleBar.Fullscreen">
         <item name="android:windowBackground">@drawable/welcome</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
 </resources>

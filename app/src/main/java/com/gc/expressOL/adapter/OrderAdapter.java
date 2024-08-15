@@ -1,73 +1,72 @@
 package com.gc.expressOL.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.blankj.utilcode.util.ObjectUtils;
 import com.gc.expressOL.R;
-import com.gc.expressOL.activity.ChakanActivity;
-import com.gc.expressOL.activity.ReceiveOrderActivity;
+import com.gc.expressOL.bean.OrderListBean;
 
 import java.util.ArrayList;
 
 /**
- * Created by Administrator on 2018/3/6.
+ * Created by gc on 2018/3/6.
  */
 
-public class OrderAdapter extends BaseAdapter {
-    private Context context;
-    ArrayList<String> company;
-    public Button order;
-    String ss;
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.RefreshItemHolder> {
 
-    Intent intent;
+    private final Context context;
+    private final ArrayList<OrderListBean> orderListBeanArrayList;
+    public OnItemClickListener onItemClickListener;
 
-    public OrderAdapter(Context context) {
+    public OrderAdapter(Context context, ArrayList<OrderListBean> orderListBeans) {
         this.context = context;
-        company = ReceiveOrderActivity.s2;
-        ss = ReceiveOrderActivity.ss;
+        orderListBeanArrayList = orderListBeans;
+    }
+
+    @NonNull
+    @Override
+    public RefreshItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_order_list, parent, false);
+        return new RefreshItemHolder(view);
     }
 
     @Override
-    public int getCount() {
-        return company.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return company.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-
-
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View view1 = layoutInflater.inflate(R.layout.messagelist, null);
-
-        order = view1.findViewById(R.id.order);
-        TextView textView = view1.findViewById(R.id.kd9);
-        textView.setText(company.get(position));
-        order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String s20 = ReceiveOrderActivity.s1.get(position);
-                intent = new Intent(context, ChakanActivity.class);//接单界面
-                intent.putExtra("auto_nums", s20);
-                intent.putExtra("state", ss);
-                context.startActivity(intent);
+    public void onBindViewHolder(@NonNull RefreshItemHolder holder, int position) {
+        holder.llItemOrder.setOnClickListener(view -> {
+            if (ObjectUtils.isNotEmpty(onItemClickListener)) {
+                onItemClickListener.onItemClick(holder.getAbsoluteAdapterPosition(), 0);
             }
         });
-        return view1;
+
+        holder.tvCompanyName.setText(orderListBeanArrayList.get(position).getExc());
+    }
+
+    @Override
+    public int getItemCount() {
+        return orderListBeanArrayList.size();
+    }
+
+    public static class RefreshItemHolder extends RecyclerView.ViewHolder {
+
+        LinearLayout llItemOrder;
+        TextView tvCompanyName;
+
+        public RefreshItemHolder(@NonNull View itemView) {
+            super(itemView);
+            llItemOrder = itemView.findViewById(R.id.ll_item_order);
+            tvCompanyName = itemView.findViewById(R.id.tv_company_name);
+        }
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

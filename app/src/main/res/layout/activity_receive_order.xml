@@ -1,46 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.gc.expressOL.activity.ReceiveOrderActivity">
 
+    <include layout="@layout/layout_base_title" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/id_swipe_Layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/green"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageButton3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@color/green"
-            android:onClick="bcro"
-            android:src="@drawable/back" />
-
-
-        <TextView
-            android:id="@+id/tex5"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingRight="40dp"
-            android:text="@string/activity_receive_order_order_details"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:overScrollMode="never"
+            android:scrollbars="none" />
 
-
-    <ListView
-        android:id="@+id/orderl2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

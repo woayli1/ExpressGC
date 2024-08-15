@@ -1,45 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gc.expressOL.activity.aboutAuthorActivity">
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/aaly"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:onClick="bcaa"
-            android:background="@color/green"
-            android:id="@+id/imageButton3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/back"
-            android:contentDescription="@null" />
-
-        <TextView
-            android:paddingRight="40dp"
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/green"
-            android:gravity="center_horizontal"
-            android:text="@string/activity_about_author_about_author"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-
-    </LinearLayout>
+    <include layout="@layout/layout_base_title" />
 
     <TextView
-        android:id="@+id/aatv"
-        android:layout_below="@id/aaly"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="15sp"/>
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="@string/activity_about_author_txt"
+        android:textSize="15sp" />
 
-</RelativeLayout>
+</LinearLayout>

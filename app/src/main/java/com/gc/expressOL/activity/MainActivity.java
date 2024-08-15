@@ -1,168 +1,118 @@
 package com.gc.expressOL.activity;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Message;
-import android.os.StrictMode;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.View;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.ObjectUtils;
 import com.gc.expressOL.R;
-import com.gc.expressOL.data.DataHelpler;
+import com.gc.expressOL.base.BaseActivity;
 import com.gc.expressOL.Servers;
+import com.gc.expressOL.data.SpHelper;
 
 import org.json.JSONArray;
 
-public class MainActivity extends Activity {
-
-    TextView textView; //已发订单
-    TextView textView2; //已接订单
-    TextView textView3; //快递查询
-    TextView textView4; //个人中心
-
-    Button button;  //我要发单
-    Button button2; //我要接单
-
-    Intent intent;
-
-    DataHelpler dataHelpler;
+/**
+ * 首页
+ */
+public class MainActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void onBind() {
+        super.onBind();
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        TextView tvSentOrder = findViewById(R.id.tv_sent_order);
+        TextView tvTakenOrder = findViewById(R.id.tv_taken_order);
+        TextView tvExpressCheck = findViewById(R.id.tv_express_check);
+        TextView tvPersonalCenter = findViewById(R.id.tv_personal_center);
+        Button btSendOrder = findViewById(R.id.bt_send_order);
+        Button btTakeOrder = findViewById(R.id.bt_take_order);
 
-        dataHelpler = new DataHelpler(this);
-
-        textView = findViewById(R.id.textView);
-        textView2 = findViewById(R.id.textView2);
-        textView3 = findViewById(R.id.textView3);
-        textView4 = findViewById(R.id.textView4);
-
-        button = findViewById(R.id.button);
-        button2 = findViewById(R.id.button2);
-
-        textView.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                intent = new Intent(MainActivity.this, ReceiveOrderActivity.class);
-                intent.putExtra("state", "已发订单");
-                startActivity(intent);
-            }
+        tvSentOrder.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putString(SpHelper.TAG_SP_STATE, "已发订单");
+            ActivityUtils.startActivity(MainActivity.this, ReceiveOrderActivity.class, bundle);
         });
 
-        textView2.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                intent = new Intent(MainActivity.this, ReceiveOrderActivity.class);
-                intent.putExtra("state", "已接订单");
-                startActivity(intent);
-            }
+        tvTakenOrder.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putString(SpHelper.TAG_SP_STATE, "已接订单");
+            ActivityUtils.startActivity(MainActivity.this, ReceiveOrderActivity.class, bundle);
         });
 
-        textView3.setOnClickListener(new View.OnClickListener() {
+        tvExpressCheck.setOnClickListener(view -> ActivityUtils.startActivity(MainActivity.this, InquireActivity.class));
 
-            public void onClick(View arg0) {
-                intent = new Intent(MainActivity.this, ChaxunActivity.class);
-                startActivity(intent);
-            }
+        tvPersonalCenter.setOnClickListener(view -> ActivityUtils.startActivity(MainActivity.this, UsersActivity.class));
+
+        btSendOrder.setOnClickListener(view -> ActivityUtils.startActivity(MainActivity.this, SendActivity.class));
+
+        btTakeOrder.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putString(SpHelper.TAG_SP_STATE, "接单");
+            ActivityUtils.startActivity(MainActivity.this, ReceiveOrderActivity.class, bundle);
         });
 
-        textView4.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View arg0) {
-                intent = new Intent(MainActivity.this, UsersActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        lianjie();
-        dl();
+        connectServers();
+        checkLogin();
     }
 
-
-    public void lianjie() {
-        String s2 = "连接服务器失败";
+    public void connectServers() {
+        String msg = "连接服务器失败";
         JSONArray result;
         try {
-            result = new JSONArray(Servers.readParse("http://" + getString(R.string.ips) + "/users"));
+            result = new JSONArray(Servers.readParse("http://" + getString(R.string.server_ip) + "/users"));
         } catch (Exception e) {
-            showmessgae("连接服务器超时");
+            showToast("连接服务器超时");
             return;
         }
         try {
-            s2 = result.getJSONObject(0).getString("solution");
+            msg = result.getJSONObject(0).getString("solution");
         } catch (Exception e) {
-            showmessgae(s2);
+            showToast(msg);
         }
-        if (!s2.equals("连接服务器失败")) {
-            showmessgae("连接服务器成功");
+        if (!msg.equals("连接服务器失败")) {
+            showToast("连接服务器成功");
         }
 
     }
 
-    public void dl() {
-        String s = dataHelpler.getcname();
-        if (s == null || s.equals("")) {
-            showmessgae("未登录");
-        }
+    @Override
+    public int setContentLayout() {
+        return R.layout.activity_main;
     }
 
-
-    public void showmessgae(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    @Override
+    public String setTitle() {
+        return "";
     }
 
-    public void bonclick(View view) {
-        intent = new Intent(this, SendActivity.class);
-        startActivity(intent);
-    }
-
-    public void b2onclick(View view) {
-        intent = new Intent(MainActivity.this, ReceiveOrderActivity.class);
-        intent.putExtra("state", "接单");
-        startActivity(intent);
+    @Override
+    public void onBackPressed() {
+        exit();
     }
 
     private static boolean isExit = false;
-
-    Handler mHandler = new Handler() {
-
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            isExit = false;
-        }
-    };
-
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            exit();
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
+    private Handler mHandler = new Handler();
 
     private void exit() {
         if (!isExit) {
             isExit = true;
-            Toast.makeText(getApplicationContext(), "再按一次退出程序",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
             // 利用handler延迟发送更改状态信息
-            mHandler.sendEmptyMessageDelayed(0, 2000);
+            mHandler.postDelayed(() -> isExit = false, 2000);
         } else {
             finish();
-            System.exit(0);
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (ObjectUtils.isNotEmpty(mHandler)) {
+            mHandler = null;
+        }
+    }
 }

@@ -1,294 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.gc.expressOL.activity.SendActivity">
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/issue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/l8"
-        android:onClick="fb"
-        android:text="@string/activity_send_button_confirm_take_order" />
+    <include layout="@layout/layout_base_title" />
 
     <LinearLayout
-        android:id="@+id/l2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l1"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/activity_send_consignee"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/nametext"
-            android:layout_width="wrap_content"
+            android:id="@+id/et_names"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="16dp"
-
-            android:layout_weight="5"
+            android:layout_marginStart="10dp"
+            android:ems="10"
             android:hint="@string/activity_send_input_consignee"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:textSize="14sp" />
 
-            android:maxLines="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/l3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l2"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="40sp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/activity_send_phone"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/phonetext"
-            android:layout_width="120dp"
+            android:id="@+id/et_num"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-
-            android:layout_marginRight="16dp"
-            android:layout_weight="5"
+            android:layout_marginStart="10dp"
+            android:ems="10"
             android:hint="@string/activity_send_input_phone"
-
+            android:importantForAutofill="no"
             android:inputType="phone"
-            android:maxLines="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/l4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l3"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="40sp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/activity_send_express"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/company"
-            android:layout_width="120dp"
+            android:id="@+id/et_exc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-
-            android:layout_marginRight="16dp"
-            android:layout_weight="5"
+            android:layout_marginStart="10dp"
+            android:ems="10"
             android:hint="@string/activity_send_input_express"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="14sp" />
 
-            android:maxLines="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/l5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l4"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="40sp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/activity_send_pickup_code"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/idtext"
-            android:layout_width="120dp"
+            android:id="@+id/et_thn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-
-            android:layout_marginRight="16dp"
-            android:layout_weight="5"
+            android:layout_marginStart="10dp"
+            android:ems="10"
             android:hint="@string/activity_send_input_pickup_code"
-
-            android:maxLines="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/l6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l5"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="40sp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/activity_send_address"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/address"
-            android:layout_width="120dp"
+            android:id="@+id/et_des"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-
-            android:layout_marginRight="16dp"
-            android:layout_weight="5"
+            android:layout_marginStart="10dp"
+            android:ems="10"
             android:hint="@string/activity_send_input_address"
-
-            android:maxLines="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/l7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l6"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
         <TextView
-            android:id="@+id/textView7"
-            android:layout_width="40sp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/activity_send_pay"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/payText"
-            android:layout_width="120dp"
+            android:id="@+id/et_pay"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-
-            android:layout_marginRight="16dp"
-            android:layout_weight="5"
+            android:layout_marginStart="10dp"
+            android:ems="10"
             android:hint="@string/activity_send_input_pay"
-
-            android:inputType="number"
-            android:maxLines="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/l8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l7"
-        android:orientation="horizontal">
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
         <TextView
-            android:id="@+id/textView8"
-            android:layout_width="40sp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center"
             android:text="@string/activity_send_time"
-            android:textColor="#000000"
-            android:textSize="15dp" />
+            android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/time"
-            android:layout_width="120dp"
+            android:id="@+id/et_time"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="5dp"
-
-            android:layout_marginRight="16dp"
-            android:layout_weight="5"
+            android:layout_marginStart="10dp"
+            android:ems="10"
             android:hint="@string/activity_send_input_time"
-
-            android:maxLines="1"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:textColor="#cccccc"
-            android:textSize="18sp" />
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/l1"
+    <Button
+        android:id="@+id/bt_confirm_take"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="20dp"
+        android:text="@string/activity_send_button_confirm_send_order" />
 
-        <ImageView
-            android:id="@+id/imageButton3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@color/green"
-            android:onClick="bcse"
-            android:src="@drawable/back" />
-
-        <TextView
-            android:id="@+id/textViee5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/green"
-            android:gravity="center_horizontal"
-            android:paddingRight="40dp"
-            android:text="@string/activity_send_send_order"
-            android:textColor="@color/white"
-            android:textSize="30dp" />
-    </LinearLayout>
-</RelativeLayout>
+</LinearLayout>
